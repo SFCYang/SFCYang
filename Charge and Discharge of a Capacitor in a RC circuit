@@ -1,0 +1,103 @@
+##THIS CODE IS PROPERTY OF SEBASTIÁN CASTRO YANG, and was created for an assignment in my Fundamentos de la Teoría Electromagéntica course.  
+##Only for non-comercial use.
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+#Código Introductorio de bienvenida
+nombre = input("\nIngrese su nombre: \n")
+print(f"\nBienvenido {nombre} al código de Sebastián Castro para graficar la carga y descarga de un capacitor!\n")
+print("**Disclaimer: Este código asume que el switch se encontraba desconectado por mucho tiempo, por tanto las condiciones inciales son nulas\n")
+print("Si ve que el gráfico no se muestra correctamente, es recomendado probar un valor de tiempo mucho mayor, o con parámetros de voltaje y/o capacitancia menores\n")
+
+######Valores colocados por usuario######
+print("##########################\n")
+print(f"¡{nombre}! Inicia definiendo los valores de tu circuito RC\n")
+
+#Voltaje
+V = float(input("Ingresar voltaje de la fuente en Volt (recomiendo valores < 3V): "))
+print(f"Ingresó: {V} Volt\n")
+
+#Corriente
+C = float(input("Ingresar capacitancia del capacitor en Farad (recomiendo valores < 0.01F): "))
+print(f"Ingresó: {C} Farad\n")
+
+#Resistor
+R = float(input("Ingresar resistecia del resistor en Ohm: "))
+print(f"Ingresó: {R} Ohm\n")
+
+# Tau
+Tau = R*C
+print(f"Su valor Tau es: {Tau}\n")
+
+
+#Tiempo del estudio
+aprobado = False
+while aprobado != True:
+    t = float(input("Ingresar tiempo de estudio en segundos (se recomienda un valor de 10s o más): "))
+    if t > 0:
+        print(f"{t} segundo/s\n")
+        aprobado = True
+    else:
+        print(f"\n{nombre}, no puedes ingresar tiempo negativo!! Este es un sistema causal\n")
+
+############
+print(f"\n{nombre}, tu gráfico se está generando...\n")
+############
+
+#definimos una matriz de tiempo
+
+tf = np.linspace(0,t,1000)
+tf2 = np.linspace(t,2*t,1000)
+
+################ Voltaje ##############################
+
+plt.subplot(1, 2, 1)
+
+#función de carga de voltaje en el tiempo
+Vc = V*(1-np.exp(-tf/Tau))
+
+#función de descarga de voltaje en el tiempo
+#Vd = V*np.exp(-tf/Tau)
+Vd = V*(1-np.exp(-t/Tau))*np.exp(-tf/Tau)
+
+#insertamos Vc y Vd al gráfico
+plt.plot(tf,Vc,label="Carga Voltaje")
+plt.plot(tf2,Vd,label="Descarga Voltaje")
+
+
+#seteamos gráfico de voltaje
+plt.xlabel("Tiempo [s]")
+plt.ylabel("Voltaje [V]")
+plt.title("Voltaje en Circuito RC")
+plt.legend()
+#plt.show()
+
+
+################ Corriente ##############################
+
+plt.subplot(1, 2, 2)
+
+#función de carga de corriente en el tiempo
+Ic = V/R*np.exp(-tf/Tau)
+
+#función de descarga de corriente en el tiempo
+qc = C*V*(1-np.exp(-t/Tau))
+Id = -qc/(R*C)*np.exp(-tf/Tau)
+
+#insertamos Ic y Id al gráfico
+plt.plot(tf,Ic,label="Carga Corriente")
+plt.plot(tf2,Id,label="Descarga Corriente")
+
+
+#seteamos gráfico de corriente
+plt.xlabel("Tiempo [s]")
+plt.ylabel("Corriente [A]")
+plt.title("Corriente en Circuito RC")
+plt.legend()
+
+
+######## SE GRAFICA ########
+
+plt.show()
