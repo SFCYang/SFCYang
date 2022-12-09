@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @SFCYang
-- 👀 I’m interested in Music Technology
+- 👀 I’m interested in Audio Electronics
 - 🌱 I’m currently learning how to implement programming to my Electrical Engineering courses
-- 💞️ I’m looking to collaborate on Music Technology related topics
+- 💞️ I’m looking to collaborate on Music related topics
 - 📫 How to reach me: an email would be nice
 
 <!---
