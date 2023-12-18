@@ -1,8 +1,7 @@
 - 👋 Hi, I’m @SFCYang
-- 👀 I’m interested in Audio Electronics
-- 🌱 I’m currently learning how to implement programming to my Electrical Engineering courses
-- 💞️ I’m looking to collaborate on Music related topics
-- 📫 How to reach me: an email would be nice
+- 👀 I’m interested in Microelectronics and Audio Electronics
+- 🌱 I’m currently open source flows for chip designs
+- 📫 How to reach me: s.castroyang@gmail.com
 
 <!---
 SFCYang/SFCYang is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
