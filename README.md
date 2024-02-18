@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @SFCYang
 - 👀 I’m interested in Microelectronics and Audio Electronics
-- 🌱 I’m currently open source flows for chip designs
+- 🌱 I’m currently into ASIC and open source IC design tools
 - 📫 How to reach me: s.castroyang@gmail.com
 
 <!---
